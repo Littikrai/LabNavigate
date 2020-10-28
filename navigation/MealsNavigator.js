@@ -7,7 +7,7 @@ import CategoryMealsScreen from "../screens/CategoryMealsScreen";
 import MealDetailScreen from "../screens/MealDetailScreen";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import FavoritesScreen from "../screens/FavoritesScreen";
-import { AntDesign } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import FiltersScreen from "../screens/FiltersScreen";
 
@@ -59,11 +59,7 @@ const MealsFavTabNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarIcon: (tabinfo) => {
         return (
-          <AntDesign
-            name="ios-restaurant"
-            size={24}
-            color={tabinfo.tintColor}
-          />
+          <Ionicons name="ios-restaurant" size={24} color={tabinfo.tintColor} />
         );
       },
     },
@@ -72,9 +68,7 @@ const MealsFavTabNavigator = createBottomTabNavigator({
     screen: FavNavigator,
     navigationOptions: {
       tabBarIcon: (tabinfo) => {
-        return (
-          <AntDesign name="ios-star" size={24} color={tabinfo.tintColor} />
-        );
+        return <Ionicons name="ios-star" size={24} color={tabinfo.tintColor} />;
       },
     },
   },

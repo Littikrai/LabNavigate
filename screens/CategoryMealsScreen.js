@@ -7,29 +7,16 @@ import {
   Platform,
   FlatList,
 } from "react-native";
-import { CATEGORIES, MEALS } from "../data/dummy-data";
+import { CATEGORIES } from "../data/dummy-data";
 import MealItem from "../components/MealItem";
 import MealList from "../components/MealList";
+import { useSelector } from "react-redux";
 
 const CategoryMealsScreen = (props) => {
-  // const renderMealItem = (itemData) => {
-  //   return (
-  //     <MealItem
-  //       title={itemData.item.title}
-  //       duration={itemData.item.duration}
-  //       complexity={itemData.item.complexity}
-  //       affordability={itemData.item.affordability}
-  //       image={itemData.item.imageUrl}
-  //       onSelectMeal={() => {
-  //         // เขียนโค้ดเพิ่ม
-  //         props.navigation.navigate("S3", { id: itemData.item.id });
-  //       }}
-  //     />
-  //   );
-  // };
+  const availableMeals = useSelector((state) => state.meals.filteredMeals);
 
   const catId = props.navigation.getParam("id");
-  const displayedMeals = MEALS.filter(
+  const displayedMeals = availableMeals.filter(
     (meal) => meal.categoryIds.indexOf(catId) >= 0
   );
   return (

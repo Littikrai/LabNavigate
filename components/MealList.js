@@ -14,7 +14,10 @@ const MealList = ({ listData, navigation }) => {
         image={itemData.item.imageUrl}
         onSelectMeal={() => {
           // เขียนโค้ดเพิ่ม
-          navigation.navigate("S3", { id: itemData.item.id });
+          navigation.navigate("S3", {
+            id: itemData.item.id,
+            mealTitle: itemData.item.title,
+          });
         }}
       />
     );
